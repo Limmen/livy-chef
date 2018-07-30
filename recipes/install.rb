@@ -19,11 +19,10 @@ group node['livy']['group'] do
 end
 
 user node['livy']['user'] do
-  home "/home/#{node['livy']['user']}"
   gid node['livy']['group']
   action :create
   shell "/bin/bash"
-  manage_home true
+  system true
   not_if "getent passwd #{node['livy']['user']}"
 end
 
