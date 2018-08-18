@@ -20,6 +20,8 @@ end
 
 user node['livy']['user'] do
   gid node['livy']['group']
+  home "/home/#{node['livy']['user']}"
+  manage_home true  
   action :create
   shell "/bin/bash"
   system true
